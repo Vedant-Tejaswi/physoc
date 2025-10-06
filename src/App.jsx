@@ -8,15 +8,13 @@ const PhysicsSociety = () => {
   const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-  
     setWindowSize({ width: window.innerWidth, height: window.innerHeight });
 
     const generateStars = (width, height) => {
-      const starCount = Math.floor((width * height) / 8000); 
+      const starCount = Math.floor((width * height) / 8000);
       
       return Array.from({ length: Math.min(starCount, 300) }, (_, i) => ({
         id: `${i}-${Date.now()}`,
@@ -25,20 +23,18 @@ const PhysicsSociety = () => {
         size: Math.random() * 2 + 0.5,
         opacity: Math.random() * 0.5 + 0.3,
         duration: Math.random() * 3 + 2,
-        depth: Math.random() * 3 + 1 
+        depth: Math.random() * 3 + 1
       }));
     };
 
     setStars(generateStars(window.innerWidth, window.innerHeight));
 
-    
     const handleMouseMove = (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 2;
       const y = (e.clientY / window.innerHeight - 0.5) * 2;
       setMousePosition({ x, y });
     };
 
-    
     const handleResize = () => {
       const newWidth = window.innerWidth;
       const newHeight = window.innerHeight;
@@ -49,7 +45,6 @@ const PhysicsSociety = () => {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', handleResize);
 
-    
     const interval = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 100) {
@@ -80,24 +75,24 @@ const PhysicsSociety = () => {
   };
 
   const members = [
-    { role: "Member"},
-    { role: "Member"},
-    { role: "Member"}, 
-    { role: "Member"}, 
-    { role: "Member"}, 
-    { role: "Member"}, 
-    { role: "Member"}, 
-    { role: "Member"}, 
-    { role: "Member"}, 
-    { role: "Member"}, 
-    { role: "Member"}, 
-    { role: "Member"}, 
+    { name: "Vedant Tejaswi",role: "President", class: "XII", image: "photos/vedant.jpeg", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "Shesh Shiromani",role: "President", class: "XII", image: "photos/shesh.jpeg", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "Anuvrat Lal",role: "Vice President", class: "XII", image: "photos/anuvrat.jpeg", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "",role: "Member", class: "XI-A", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "",role: "Member", class: "XII-C", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "",role: "Member", class: "XI-B", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "",role: "Member", class: "XII-A", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "",role: "Member", class: "XI-D", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "",role: "Member", class: "XII-B", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "",role: "Member", class: "XI-A", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "",role: "Member", class: "XII-D", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { name: "",role: "Member", class: "XI-C", image: "", scale: 100, offsetX: 0, offsetY: 0 }
   ];
 
   const faculty = [
-    { designation: "Incharge" },
-    { designation: "Incharge" },
-    { designation: "Incharge" }
+    { designation: "Incharge", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { designation: "Incharge", image: "", scale: 100, offsetX: 0, offsetY: 0 },
+    { designation: "Incharge", image: "", scale: 100, offsetX: 0, offsetY: 0 }
   ];
 
   if (loading) {
@@ -122,7 +117,6 @@ const PhysicsSociety = () => {
     return (
       <div className="min-h-screen bg-black text-white relative overflow-x-hidden" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        
         
         <div className="fixed inset-0 z-0 overflow-hidden">
           {stars.map(star => {
@@ -164,7 +158,6 @@ const PhysicsSociety = () => {
           }
         `}</style>
 
-        
         <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 border-b border-gray-800/50">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
@@ -196,7 +189,6 @@ const PhysicsSociety = () => {
           )}
         </nav>
 
-        
         <div className="relative z-10 pt-40 pb-20 px-6">
           <div className="max-w-4xl mx-auto text-center" style={{ animation: 'fadeInUp 0.8s ease-out' }}>
             <h1 className="text-5xl md:text-7xl font-light mb-8 tracking-tight">
@@ -215,7 +207,6 @@ const PhysicsSociety = () => {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-x-hidden" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      
       
       <div className="fixed inset-0 z-0 overflow-hidden">
         {stars.map(star => {
@@ -268,7 +259,6 @@ const PhysicsSociety = () => {
         }
       `}</style>
 
-      
       <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 border-b border-gray-800/50" style={{ animation: 'fadeIn 0.5s ease-out' }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -308,7 +298,6 @@ const PhysicsSociety = () => {
         )}
       </nav>
 
-      
       <section id="home" className="relative min-h-screen flex items-center justify-center px-6">
         <div className="text-center z-10 max-w-5xl" style={{ animation: 'fadeInUp 0.8s ease-out' }}>
           <h1 className="text-6xl md:text-8xl font-light mb-4 tracking-tight leading-tight">
@@ -326,7 +315,6 @@ const PhysicsSociety = () => {
         </div>
       </section>
 
-      
       <section id="about" className="relative min-h-screen flex items-center justify-center px-6 py-32">
         <div className="max-w-5xl z-10">
           <h2 className="text-5xl md:text-6xl font-light mb-16 tracking-tight">
@@ -346,7 +334,6 @@ const PhysicsSociety = () => {
         </div>
       </section>
 
-      
       <section id="members" className="relative min-h-screen flex items-center justify-center px-6 py-32">
         <div className="max-w-7xl z-10 w-full">
           <h2 className="text-5xl md:text-6xl font-light mb-16 tracking-tight">
@@ -359,18 +346,29 @@ const PhysicsSociety = () => {
                 className="border border-gray-800 p-8 bg-black/40 backdrop-blur-sm card-hover"
                 style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.05}s backwards` }}
               >
-                <div className="w-full aspect-square bg-gradient-to-br from-gray-800 to-gray-900 mb-6 flex items-center justify-center">
-                  <div className="w-20 h-20 border border-gray-700"></div>
+                <div className="w-full aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 mb-6 flex items-center justify-center overflow-hidden">
+                  {member.image ? (
+                    <img 
+                      src={member.image} 
+                      alt={member.role} 
+                      className="w-full h-full object-cover"
+                      style={{ 
+                        transform: `scale(${member.scale / 100}) translate(${member.offsetX}px, ${member.offsetY}px)`
+                      }}
+                    />
+                  ) : (
+                    <div className="w-20 h-24 border border-gray-700"></div>
+                  )}
                 </div>
-                <p className="text-white font-medium mb-2 tracking-wide">{member.role}</p>
-                <p className="text-gray-500 text-sm tracking-wider">Class {member.class}</p>
+                <h3 className='text-white font-semibold text-xl'>{member.name}</h3>
+                <p className="text-gray-200 font-medium text-sm mb-2 tracking-wide">{member.role}</p>
+                <p className="text-gray-400 text-xs tracking-wider">Class {member.class}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      
       <section id="faculty" className="relative min-h-screen flex items-center justify-center px-6 py-32">
         <div className="max-w-6xl z-10 w-full">
           <h2 className="text-5xl md:text-6xl font-light mb-16 tracking-tight">
@@ -383,8 +381,19 @@ const PhysicsSociety = () => {
                 className="border border-gray-800 p-10 bg-black/40 backdrop-blur-sm card-hover"
                 style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.15}s backwards` }}
               >
-                <div className="w-full aspect-square bg-gradient-to-br from-gray-800 to-gray-900 mb-8 flex items-center justify-center">
-                  <div className="w-24 h-24 border border-gray-700"></div>
+                <div className="w-full aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 mb-8 flex items-center justify-center overflow-hidden">
+                  {member.image ? (
+                    <img 
+                      src={member.image} 
+                      alt={member.designation} 
+                      className="w-full h-full object-cover"
+                      style={{ 
+                        transform: `scale(${member.scale / 100}) translate(${member.offsetX}px, ${member.offsetY}px)`
+                      }}
+                    />
+                  ) : (
+                    <div className="w-24 h-32 border border-gray-700"></div>
+                  )}
                 </div>
                 <p className="text-gray-400 text-center tracking-wide">{member.designation}</p>
               </div>
@@ -393,7 +402,6 @@ const PhysicsSociety = () => {
         </div>
       </section>
 
-      
       <section id="events" className="relative min-h-screen flex items-center justify-center px-6 py-32">
         <div className="max-w-5xl z-10 w-full">
           <h2 className="text-5xl md:text-6xl font-light mb-16 tracking-tight">
@@ -406,11 +414,9 @@ const PhysicsSociety = () => {
         </div>
       </section>
 
-      
       <footer className="relative z-10 bg-black/60 border-t border-gray-800/50 py-12">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-gray-600 text-sm tracking-wider">© 2025 PHYSOC, DPS RK PURAM</p>
-          <p className='text-gray-600 text-sm tracking-wider'>Made by Vedant Tejaswi</p>
         </div>
       </footer>
     </div>
