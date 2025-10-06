@@ -8,15 +8,15 @@ const PhysicsSociety = () => {
   const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // Starfield animation
+  
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    // Set initial window size
+  
     setWindowSize({ width: window.innerWidth, height: window.innerHeight });
 
     const generateStars = (width, height) => {
-      const starCount = Math.floor((width * height) / 8000); // Responsive star count
+      const starCount = Math.floor((width * height) / 8000); 
       
       return Array.from({ length: Math.min(starCount, 300) }, (_, i) => ({
         id: `${i}-${Date.now()}`,
@@ -25,20 +25,20 @@ const PhysicsSociety = () => {
         size: Math.random() * 2 + 0.5,
         opacity: Math.random() * 0.5 + 0.3,
         duration: Math.random() * 3 + 2,
-        depth: Math.random() * 3 + 1 // Parallax depth (1-4)
+        depth: Math.random() * 3 + 1 
       }));
     };
 
     setStars(generateStars(window.innerWidth, window.innerHeight));
 
-    // Mouse move handler
+    
     const handleMouseMove = (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 2;
       const y = (e.clientY / window.innerHeight - 0.5) * 2;
       setMousePosition({ x, y });
     };
 
-    // Regenerate stars on resize
+    
     const handleResize = () => {
       const newWidth = window.innerWidth;
       const newHeight = window.innerHeight;
@@ -49,7 +49,7 @@ const PhysicsSociety = () => {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', handleResize);
 
-    // Loading animation
+    
     const interval = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 100) {
@@ -80,18 +80,18 @@ const PhysicsSociety = () => {
   };
 
   const members = [
-    { role: "Member", class: "XII-A" },
-    { role: "Member", class: "XII-B" },
-    { role: "Member", class: "XI-C" },
-    { role: "Member", class: "XI-A" },
-    { role: "Member", class: "XII-C" },
-    { role: "Member", class: "XI-B" },
-    { role: "Member", class: "XII-A" },
-    { role: "Member", class: "XI-D" },
-    { role: "Member", class: "XII-B" },
-    { role: "Member", class: "XI-A" },
-    { role: "Member", class: "XII-D" },
-    { role: "Member", class: "XI-C" }
+    { role: "Member"},
+    { role: "Member"},
+    { role: "Member"}, 
+    { role: "Member"}, 
+    { role: "Member"}, 
+    { role: "Member"}, 
+    { role: "Member"}, 
+    { role: "Member"}, 
+    { role: "Member"}, 
+    { role: "Member"}, 
+    { role: "Member"}, 
+    { role: "Member"}, 
   ];
 
   const faculty = [
@@ -107,7 +107,7 @@ const PhysicsSociety = () => {
         <div className="text-center">
           <div className="w-64 h-1 bg-gray-800 rounded-full overflow-hidden mb-6">
             <div 
-              className="h-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300"
+              className="h-full bg-white transition-all duration-300"
               style={{ width: `${loadingProgress}%` }}
             />
           </div>
@@ -123,7 +123,7 @@ const PhysicsSociety = () => {
       <div className="min-h-screen bg-black text-white relative overflow-x-hidden" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         
-        {/* Starfield Background */}
+        
         <div className="fixed inset-0 z-0 overflow-hidden">
           {stars.map(star => {
             const offsetX = mousePosition.x * star.depth * 20;
@@ -164,7 +164,7 @@ const PhysicsSociety = () => {
           }
         `}</style>
 
-        {/* Navigation */}
+        
         <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 border-b border-gray-800/50">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
@@ -196,7 +196,7 @@ const PhysicsSociety = () => {
           )}
         </nav>
 
-        {/* Resources Content */}
+        
         <div className="relative z-10 pt-40 pb-20 px-6">
           <div className="max-w-4xl mx-auto text-center" style={{ animation: 'fadeInUp 0.8s ease-out' }}>
             <h1 className="text-5xl md:text-7xl font-light mb-8 tracking-tight">
@@ -216,7 +216,7 @@ const PhysicsSociety = () => {
     <div className="min-h-screen bg-black text-white relative overflow-x-hidden" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       
-      {/* Starfield Background */}
+      
       <div className="fixed inset-0 z-0 overflow-hidden">
         {stars.map(star => {
           const offsetX = mousePosition.x * star.depth * 20;
@@ -268,7 +268,7 @@ const PhysicsSociety = () => {
         }
       `}</style>
 
-      {/* Navigation */}
+      
       <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 border-b border-gray-800/50" style={{ animation: 'fadeIn 0.5s ease-out' }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -308,7 +308,7 @@ const PhysicsSociety = () => {
         )}
       </nav>
 
-      {/* Home Section */}
+      
       <section id="home" className="relative min-h-screen flex items-center justify-center px-6">
         <div className="text-center z-10 max-w-5xl" style={{ animation: 'fadeInUp 0.8s ease-out' }}>
           <h1 className="text-6xl md:text-8xl font-light mb-4 tracking-tight leading-tight">
@@ -326,7 +326,7 @@ const PhysicsSociety = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      
       <section id="about" className="relative min-h-screen flex items-center justify-center px-6 py-32">
         <div className="max-w-5xl z-10">
           <h2 className="text-5xl md:text-6xl font-light mb-16 tracking-tight">
@@ -346,7 +346,7 @@ const PhysicsSociety = () => {
         </div>
       </section>
 
-      {/* Members Section */}
+      
       <section id="members" className="relative min-h-screen flex items-center justify-center px-6 py-32">
         <div className="max-w-7xl z-10 w-full">
           <h2 className="text-5xl md:text-6xl font-light mb-16 tracking-tight">
@@ -370,7 +370,7 @@ const PhysicsSociety = () => {
         </div>
       </section>
 
-      {/* Faculty Section */}
+      
       <section id="faculty" className="relative min-h-screen flex items-center justify-center px-6 py-32">
         <div className="max-w-6xl z-10 w-full">
           <h2 className="text-5xl md:text-6xl font-light mb-16 tracking-tight">
@@ -393,7 +393,7 @@ const PhysicsSociety = () => {
         </div>
       </section>
 
-      {/* Events Section */}
+      
       <section id="events" className="relative min-h-screen flex items-center justify-center px-6 py-32">
         <div className="max-w-5xl z-10 w-full">
           <h2 className="text-5xl md:text-6xl font-light mb-16 tracking-tight">
@@ -406,7 +406,7 @@ const PhysicsSociety = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      
       <footer className="relative z-10 bg-black/60 border-t border-gray-800/50 py-12">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-gray-600 text-sm tracking-wider">© 2025 PHYSOC, DPS RK PURAM</p>
