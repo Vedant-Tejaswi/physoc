@@ -410,6 +410,7 @@ const PhysicsSociety = () => {
       <footer className="relative z-10 bg-black/60 border-t border-gray-800/50 py-12">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-gray-600 text-sm tracking-wider">© 2025 PHYSOC, DPS RK PURAM</p>
+          <p className='text-gray-600 text-sm tracking-wider'>Made by Vedant Tejaswi</p>
         </div>
       </footer>
     </div>
